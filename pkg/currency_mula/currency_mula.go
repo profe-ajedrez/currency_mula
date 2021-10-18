@@ -44,7 +44,7 @@ func (c *currency) Add(addings ...currency) currency {
 func (c *currency) Substract(substractings ...currency) currency {
 	amount := c.amount
 	for _, substracting := range substractings {
-		amount = amount.Add(substracting.amount)
+		amount = amount.Substract(substracting.amount)
 	}
 	return currencyFromCurrency(*c, amount)
 }
@@ -52,7 +52,7 @@ func (c *currency) Substract(substractings ...currency) currency {
 func (c *currency) Multiply(factors ...currency) currency {
 	amount := c.amount
 	for _, factor := range factors {
-		amount = amount.Add(factor.amount)
+		amount = amount.Multiply(factor.amount)
 	}
 	return currencyFromCurrency(*c, amount)
 }
@@ -60,7 +60,7 @@ func (c *currency) Multiply(factors ...currency) currency {
 func (c *currency) Divide(divisors ...currency) currency {
 	amount := c.amount
 	for _, divisor := range divisors {
-		amount = amount.Add(divisor.amount)
+		amount = amount.Divide(divisor.amount)
 	}
 	return currencyFromCurrency(*c, amount)
 }
